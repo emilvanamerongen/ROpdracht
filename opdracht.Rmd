@@ -7,3 +7,31 @@ output: html_document
 
 
 Emil's deel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Edwin's deel
+
+
+
+
+
+
+
+
+
+
+Alex' deel
