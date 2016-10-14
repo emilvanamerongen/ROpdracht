@@ -5,33 +5,43 @@ date: "6 oktober 2016"
 output: html_document
 ---
 
-
-Emil's deel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Edwin's deel
 
 
-test1234
+
+
+```{r,echo=FALSE,include=FALSE}
+library(lumi)
+filedata<-c("KHYG1_ctrl_a_rawdata.txt","KHYG1_ctrl_b_rawdata.txt","KHYG1_ctrl_c_rawdata.txt","KHYG1_si308_a_rawdata.txt","KHYG1_si308_b_rawdata.txt","KHYG1_si308_c_rawdata.txt")
+fulldata<-lumiR.batch(filedata)
+
+```
+#Kwaliteits controle
+
+```{r,echo=FALSE}
+summary(fulldata, 'QC')
+
+```
+
+#Density Plot voor normalisatie.
+```{r,echo=FALSE}
+
+plot(fulldata)
+```
+
+```{r,echo=FALSE,include=FALSE}
+lumi.T <- lumiT(fulldata)
+lumi.N <- lumiN(lumi.T, method='loess')
+```
+
+#Density Plot na normalisatie.
+```{r,echo=FALSE}
+plot(lumi.N)
+```
 
 
 
-
+Emil's deel
 
 
 
