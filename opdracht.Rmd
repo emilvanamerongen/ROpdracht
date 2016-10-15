@@ -7,7 +7,16 @@ output: html_document
 
 Edwin's deel
 
+#Microarray analyse.
+**Biologische achtergrond:**  
+Deze microarray's geven de resultaten van een onderzoek naar KHYG1 leukemie.
+Hiervoor is gebruik gemaakt van de compound pyrazolo[3,4-d]Pyrimidine wat voor apoptosis en cell dood zorgt. 
+Er is onderzoek gedaan naar de mechanismen van apoptosis en cell dood.
 
+
+De code van de array's: E-MTAB-4536  
+Er worden 6 bestanden ingeladen waarvan 3 controle bestanden zijn.  
+De array's zijn geladen en geanalyseerd met behulp van de lumi library in R.  
 
 
 ```{r,echo=FALSE,include=FALSE}
@@ -16,7 +25,7 @@ filedata<-c("KHYG1_ctrl_a_rawdata.txt","KHYG1_ctrl_b_rawdata.txt","KHYG1_ctrl_c_
 fulldata<-lumiR.batch(filedata)
 
 ```
-#Kwaliteits controle
+#Kwaliteits Controle Array's.
 
 ```{r,echo=FALSE}
 summary(fulldata, 'QC')
@@ -39,6 +48,21 @@ lumi.N <- lumiN(lumi.T, method='loess')
 plot(lumi.N)
 ```
 
+#Conclusies density plots.  
+
+
+#Statistische testen.
+```{r,echo=FALSE,include=FALSE}
+library(limma)
+```
+
+
+#Annotaties.
+```{r,echo=FALSE,include=FALSE}
+library("lumiHumanAll.db")
+
+
+```
 
 
 Emil's deel
