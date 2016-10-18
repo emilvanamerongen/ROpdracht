@@ -5,8 +5,6 @@ date: "6 oktober 2016"
 output: html_document
 ---
 
-Edwin's deel
-
 #Microarray analyse.
 **Biologische achtergrond:**  
 Deze microarray's geven de resultaten van een onderzoek naar KHYG1 leukemie.
@@ -51,9 +49,33 @@ plot(lumi.N)
 #Conclusies density plots.  
 Uit de plots is te concluderen dat de data erg goed was aangezien er na het normaliseren niet veel verschil te zien is.
 
-#Statistische testen.
+#Statistische testen
 ```{r,echo=FALSE,include=FALSE}
 library(limma)
+exprs(x.norm) <- log2(exprs(x.norm))
+design <- cbind(c(1,1,1,0,0,0), c(0,0,0,1,1,1))
+rownames(design) <- sampleNames(x.norm)
+colnames(design) <- c("ctrl", "si308")
+
+```
+De design matrix om de arrays met de controle data te vergelijken.
+```{r,echo=FALSE}
+design
+```
+```{r,echo=FALSE,include=FALSE}
+library(lumiHumanIDMapping)
+fit <- lmFit(x.norm, design)
+cont.matrix <- makeContrasts(si308_vs_ctrl=si308-ctrl, levels=design)
+fit2 <- contrasts.fit(fit, cont.matrix)
+fit2 <- eBayes(fit2)
+```
+
+Differentially expressed genes:
+
+```{r}
+
+topTable(fit2, adjust="BH")
+
 ```
 
 
@@ -64,11 +86,3 @@ library("lumiHumanAll.db")
 
 ```
 
-
-Emil's deel
-
-
-
-
-
-Alex' deel
