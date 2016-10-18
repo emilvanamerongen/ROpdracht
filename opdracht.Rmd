@@ -49,7 +49,7 @@ plot(lumi.N)
 ```
 
 #Conclusies density plots.  
-
+Uit de plots is te concluderen dat de data erg goed was aangezien er na het normaliseren niet veel verschil te zien is.
 
 #Statistische testen.
 ```{r,echo=FALSE,include=FALSE}
