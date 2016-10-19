@@ -79,10 +79,23 @@ topTable(fit2, adjust="BH")
 ```
 
 
-#Annotaties.
+#Annotaties
 ```{r,echo=FALSE,include=FALSE}
 library("lumiHumanAll.db")
-
-
+```
+ 
+De NuIDs worden aangemaakt om de annotaties van de genen op te zoeken.
+```{r}
+NuIDs <- IlluminaID2nuID(featureNames(x.norm), species = c("Human"))
+```
+ 
+De annotaties van de genen waren opgezocht met de NuIDs in de lumiHumanAll.db library.
+bijvoorbeeld: "get(NuIDs[1,7], lumiHumanAllCHR)" laat zien op welk chromosoom het gen staat.
+Chromosomen van meerdere genen zijn opgehaald met: "mget(NuIDs[,7], lumiHumanAllCHR)".
+Zo kon voor elke gen de gewenste annotatie opgehaald worden met de lumiHumanAll.db libraray.
+```{r}
+get(NuIDs[1,7], lumiHumanAllCHR)
+head(mget(NuIDs[,7], lumiHumanAllENSEMBL),n=10)
+ 
 ```
 
