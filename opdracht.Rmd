@@ -38,12 +38,12 @@ plot(fulldata)
 
 ```{r,echo=FALSE,include=FALSE}
 lumi.T <- lumiT(fulldata)
-lumi.N <- lumiN(lumi.T, method='loess')
+x.norm <- lumiN(lumi.T, method='loess')
 ```
 
 #Density Plot na normalisatie.
 ```{r,echo=FALSE}
-plot(lumi.N)
+plot(x.norm)
 ```
 
 #Conclusies density plots.  
